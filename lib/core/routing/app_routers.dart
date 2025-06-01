@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_car/core/routing/routes.dart';
-import 'package:go_car/features/login_screen/login_screen.dart';
+import 'package:go_car/features/auth/login_screen/login_screen.dart';
+import 'package:go_car/features/home/home_screen.dart';
 import 'package:go_car/features/onboarding/onboarding_screen.dart';
 
 class AppRouter {
@@ -11,6 +12,9 @@ class AppRouter {
 
       case Routes.login:
         return MaterialPageRoute(builder: (_) => LoginScreen());
+
+      case Routes.home:
+        return MaterialPageRoute(builder: (_) => HomeScreen());
 
       default:
         // Unknown route
