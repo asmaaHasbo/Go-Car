@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           textTheme: GoogleFonts.cairoTextTheme(),
         ),
-        initialRoute: Routes.login,
+        initialRoute: Routes.onboarding,
         onGenerateRoute: AppRouter().generateRoute,
       ),
     );

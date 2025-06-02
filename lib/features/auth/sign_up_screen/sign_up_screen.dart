@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:go_car/core/helper/navigation_extension.dart';
+import 'package:go_car/core/routing/routes.dart';
 import 'package:go_car/core/shared/custom_elevated_btn.dart';
 import 'package:go_car/core/shared/custom_text_field.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
@@ -30,6 +33,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.white,
           title: Center(
             child: const Text(
               'Personal info',
@@ -48,6 +52,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
               padding: EdgeInsets.only(top: 40.0.w, right: 16.w, left: 16.w),
               child: Column(
                 children: [
+                  //---------------------  car  ---------------------
+                  SizedBox(
+                    height: 40.h,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        Container(
+                          height: 6.h,
+                          width: 208.w,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Color(0xFFEAECF0),
+                          ),
+                        ),
+                        Positioned(
+                          left: 0,
+                          top: -12.h,
+                          child: SvgPicture.asset('assets/svgs/car_line.svg'),
+                        ),
+                      ],
+                    ),
+                  ),
+
                   //---------------------  full name field ---------------------
                   CustomTextField(
                     controller: nameController,
@@ -165,10 +192,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   SizedBox(height: 36.h),
                   CustomElevatedBtn(
                     onPressed: () {
-                      // Handle sign up logic here
+                      context.pushNamed(Routes.phoneNumberOtp);
                     },
                     btnName: 'Next',
                   ),
+
+                  SizedBox(height: 36.h),
                 ],
               ),
             ),
