@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  //------------------ logo and app name ------------------
+                  //------------------ logo and app name ---------------
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      //------------------ Phone Input Field ------------------
+                      //------------------ Phone Input Field -------------
                       Text(
                         'Phone Number',
                         textAlign: TextAlign.start,
@@ -188,7 +188,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       SizedBox(height: 20.h),
 
-                      //------------------ forgot password ------------------//
+                      //------------------ forgot password ------------------
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
@@ -205,7 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
 
-                      //------------------ rememper me ------------------//
+                      //------------------ rememper me ------------------
                       Row(
                         // crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -268,7 +268,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       ),
 
-                      //------------------- login button ------------------//
+                      //------------------- login button ------------------
                       SizedBox(height: 30.h),
                       CustomElevatedBtn(
                         btnName: 'Login',

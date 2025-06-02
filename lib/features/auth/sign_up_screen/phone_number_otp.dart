@@ -149,7 +149,7 @@ class _PhoneNumberOtpState extends State<PhoneNumberOtp> {
               ),
             ),
 
-            //---------------------  otp field ---------------------
+            //---------------------  otp field -------------------
             SizedBox(height: 24.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -224,7 +224,7 @@ class _PhoneNumberOtpState extends State<PhoneNumberOtp> {
               }),
             ),
 
-            //---------------------  next button ---------------------
+            //---------------------  next button ------------------
             Spacer(flex: 1),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

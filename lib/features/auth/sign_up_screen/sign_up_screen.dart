@@ -75,7 +75,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
 
-                  //---------------------  full name field ---------------------
+                  //---------------------  full name field ---------------
                   CustomTextField(
                     controller: nameController,
                     fieldTitle: 'Full Name',
@@ -142,7 +142,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
 
-                  ///---------------------  invitation code field ---------------------
+                  ///---------------------  invitation code field ------------
                   CustomTextField(
                     controller: invitationCodeController,
                     fieldTitle: 'invitation code',
@@ -168,7 +168,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
 
-                  //---------------------  confirm password field ---------------------
+                  //---------------------  confirm password field --------------
                   CustomTextField(
                     controller: confrimPasswordController,
                     fieldTitle: 'confirm Password',
