@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,17 +16,35 @@ class PhoneNumberOtp extends StatefulWidget {
 }
 
 class _PhoneNumberOtpState extends State<PhoneNumberOtp> {
-  final int otpLength = 6;
+final int otpLength = 6;
   late final List<FocusNode> _focusNodes;
   late final List<TextEditingController> _controllers;
   late final List<bool> isFilledList;
-
   int isFocused = -1;
+
+
+  Timer? _timer;
+  int _start = 180; // 3 دقائق
+  void startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (_start == 0) {
+        setState(() {
+        });
+        timer.cancel();
+      } else {
+        setState(() {
+          _start--;
+        });
+      }
+    });
+  }
+
 
   @override
   void initState() {
     super.initState();
-
+    startTimer();
+ /// The [FocusNode]s are initialized here and their listeners are added.
     _focusNodes = List.generate(otpLength, (index) {
       final node = FocusNode();
       node.addListener(() {
@@ -47,6 +67,8 @@ class _PhoneNumberOtpState extends State<PhoneNumberOtp> {
 
   @override
   void dispose() {
+    _timer?.cancel();
+    
     for (final node in _focusNodes) {
       node.dispose();
     }
@@ -55,6 +77,8 @@ class _PhoneNumberOtpState extends State<PhoneNumberOtp> {
     }
     super.dispose();
   }
+
+  
 
   void _onChanged(String value, int index) {
     setState(() {
@@ -81,12 +105,12 @@ class _PhoneNumberOtpState extends State<PhoneNumberOtp> {
     if (value.length == 1 && index < otpLength - 1) {
       _focusNodes[index + 1].requestFocus();
     }
+
     // الرجوع للخلف عند حذف الرقم
     else if (value.isEmpty && index > 0) {
       _focusNodes[index - 1].requestFocus();
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,8 +164,11 @@ class _PhoneNumberOtpState extends State<PhoneNumberOtp> {
                 ],
               ),
             ),
+         
+         
+         //-------------------------timer------------------------
             Text(
-              '02:32',
+              '${(_start ~/ 60).toString().padLeft(2, '0')}:${(_start % 60).toString().padLeft(2, '0')}',
               style: TextStyle(
                 fontSize: 16.sp,
                 color: const Color(0xFF266FFF),
@@ -265,3 +292,10 @@ class _PhoneNumberOtpState extends State<PhoneNumberOtp> {
     );
   }
 }
+
+
+
+
+
+
+
